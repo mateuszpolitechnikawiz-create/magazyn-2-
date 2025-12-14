@@ -1,4 +1,4 @@
-Zrozumiałem. Poniżej znajduje się pełny, poprawiony kod Streamlit (app.py), w którym funkcja st.experimental_rerun() została zastąpiona aktualną i poprawną funkcją st.rerun().
+
 
 📦 Poprawiony Kod Aplikacji Streamlit (app.py)
 Ten kod jest gotowy do wdrożenia na Streamlit i używa st.session_state do zachowania stanu magazynu w trakcie interakcji.
