@@ -1,3 +1,10 @@
+Zrozumiałem. Poniżej znajduje się pełny, poprawiony kod Streamlit (app.py), w którym funkcja st.experimental_rerun() została zastąpiona aktualną i poprawną funkcją st.rerun().
+
+📦 Poprawiony Kod Aplikacji Streamlit (app.py)
+Ten kod jest gotowy do wdrożenia na Streamlit i używa st.session_state do zachowania stanu magazynu w trakcie interakcji.
+
+Python
+
 import streamlit as st
 import pandas as pd
 
@@ -75,8 +82,8 @@ with st.form("form_dodaj_towar", clear_on_submit=True):
     submitted = st.form_submit_button("Dodaj do Magazynu")
     if submitted and nowy_towar:
         dodaj_towar(nowy_towar, nowa_ilosc, nowa_cena)
-        # Rerun aplikacji, aby odświeżyć tabelę
-        st.experimental_rerun()
+        # POPRAWKA: Użycie st.rerun() zamiast st.experimental_rerun()
+        st.rerun()
     elif submitted and not nowy_towar:
         st.error("Proszę podać nazwę towaru.")
 
@@ -96,11 +103,12 @@ if st.session_state.magazyn:
     )
     
     # Wyciągamy indeks z wybranego stringa (jest on na początku)
+    # Przykład: "0: Laptop Pro (Ilość: 5)" -> indeks to 0
     indeks_do_usuniecia = int(wybrany_do_usuniecia.split(":")[0])
 
     if st.button("Usuń wybrany Towar", help="Spowoduje trwałe usunięcie całej pozycji z magazynu"):
         usun_towar(indeks_do_usuniecia)
-        # Rerun aplikacji, aby odświeżyć tabelę
-        st.experimental_rerun()
+        # POPRAWKA: Użycie st.rerun() zamiast st.experimental_rerun()
+        st.rerun()
 else:
     st.info("Brak towarów do usunięcia.")
